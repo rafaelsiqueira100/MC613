@@ -1,0 +1,17 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+ENTITY light IS
+PORT(
+	a, b, c, d, e: IN STD_LOGIC;
+	f: OUT STD_LOGIC
+);
+END light;
+
+ARCHITECTURE LogicFUnction OF light IS
+BEGIN
+	f <= (b and c and e)or (e and not d and c and not a)
+	or(not b and not c and not a and not e) 
+	or (b and not e and not c and not d) or (a and not b and not c and not d)
+	END LogicFunction;
+	
