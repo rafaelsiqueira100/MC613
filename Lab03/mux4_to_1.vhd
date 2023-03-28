@@ -1,16 +1,36 @@
-LIBRARY ieee;
-USE ieee.std_logic_1164.all;
+library ieee;
+use ieee.std_logic_1164.all;
 
-ENTITY mux4_to_1 IS
-port(
-     	sel[2], en, w : IN STD_LOGIC;
-        d0, d1, d2, d3: OUT STD_LOGIC
-);
-END mux4_to_1;
+entity mux4_to_1 is
+port(d3, d2, d1, d0 : in std_logic;
+       sel : in std_logic_vector(1 downto 0);
+       output : out std_logic);
+end mux4_to_1;
 
-ARCHITECTURE LogicFunction3 OF mux_4_to_1 IS
+architecture rtl of mux4_to_1 is
+signal y: std_logic_vector(0 to 3);
+begin
+     	decoder: entity work.dec2_to_4
+                port map(
+                        en => '1',
+                        w0 => sel(0),
+                        w1 => sel(1),
+                        y0 => y(0),
+                        y1 => y(1),
+                        y2 => y(2),
+                        y3 => y(3)
+                );
+        extra_logic: entity work.extra_logic
+                port map(
+                        w0 => d0,
+                        w1 => d1,
+                        w2 => d2,
+                        w3 => d3,
+                        y0 => y(0),
+                        y1 => y(1),
+                        y2 => y(2),
+                        y3 => y(3),
+                        f => output
+                );
+end rtl;
 
-BEGIN
-     	dec2_to_4
-        extra_logic
-END;

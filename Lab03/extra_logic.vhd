@@ -1,14 +1,13 @@
-LIBRARY ieee;
-USE ieee.std_logic_1164.all;
+ibrary ieee;
+use ieee.std_logic_1164.all;
 
-ENTITY extra_logic IS
-port(
-     	w0, y0, w1, y1, w2, y2, w3, y3 : IN STD_LOGIC;
-        f: OUT STD_LOGIC
-);
-END extra_logic;
+entity extra_logic is
+  port(w3, w2, w1, w0 : in std_logic;
+       y3, y2, y1, y0 : in std_logic;
+       f : out std_logic);
+end extra_logic;
 
-ARCHITECTURE LogicFunction2 OF extra_logic IS
-BEGIN
+architecture rtl of extra_logic is
+begin
      	f <= (w0 AND y0) OR (w1 AND y1) OR (w2 AND y2) OR (w3 AND y3);
-END;
+end;
