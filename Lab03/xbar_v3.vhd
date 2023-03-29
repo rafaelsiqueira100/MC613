@@ -6,6 +6,9 @@ entity xbar_v3 is
        y1, y2: out std_logic);
 end xbar_v3;
 
+-- xbar usando PROCESS com IF - ELSE
+-- Quando S eh 0, entao as entradas seguem para suas respectivas saidas
+-- caso contrario, ha a troca de saidas.
 architecture rtl of xbar_v3 is
   -- add your code
 begin

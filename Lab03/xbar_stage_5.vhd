@@ -6,6 +6,8 @@ entity xbar_stage_5 is
        LEDR: out std_logic_vector(0 downto 0));
 end xbar_stage_5;
 
+-- Stage com 5 componentes XBAR, o GENERIC da entidade xbar_gen 
+-- nao foi usado pois o valor padrao eh 5. Saida conectada ao LED no LEDR(0)
 architecture rtl of xbar_stage_5 is
 	signal out1, out2 : std_logic;
 begin
