@@ -1,11 +1,5 @@
-library ieee;
+ibrary ieee;
 use ieee.std_logic_1164.all;
--- Este componente faz varias conexoes,
--- transmitindo yi se wi for 1
--- No final, e feito um or entre todos os elementos
--- pois geralmente apenas um dos w valera 1,
--- os demais valerao zero e este y devera ser 
--- transmitido para f
 
 entity extra_logic is
   port(w3, w2, w1, w0 : in std_logic;

@@ -1,5 +1,4 @@
---Nome: Rafael Andre Alves de Siqueira RA: 243360
-library ieee;
+ibrary ieee;
 use ieee.std_logic_1164.all;
 
 entity mux16_to_1 is
@@ -7,14 +6,6 @@ port(data: IN STD_LOGIC_VECTOR(15 downto 0);
         sel : IN STD_LOGIC_VECTOR(3 downto 0);
         output: OUT STD_LOGIC);
 end mux16_to_1;
-
---O objetivo desta funçao logica e construir um multiplexador de
--- 16 entradas e 1 saida a partir de componentes mais simples 
--- Neste caso, usamos 5 multiplexadores 4:1
--- Os 4 primeiros recebem as 16 entradas e cada um deles gera uma 
--- saida. Estas 4 saidas sao colocadas como entrada do 5º 
--- multiplexador, e a saida dele eh conectada a saida do 
--- mux 16:1.
 
 architecture rtl of mux16_to_1 is
 signal y: std_logic_vector(0 to 3);
@@ -61,7 +52,7 @@ begin
                 );
         mux5: entity work.mux4_to_1
                 port map(
-								sel(0) => sel(0),
+			sel(0) => sel(0),
                         sel(1) => sel(1),
                         d0 => y(0),
                         d1 => y(1),
