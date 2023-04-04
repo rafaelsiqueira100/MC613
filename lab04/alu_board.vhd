@@ -16,15 +16,15 @@ signal to_s1: std_logic;
 signal s1_7bs:std_logic_vector(6 downto 0);
 signal result: std_logic_vector(3 downto 0);
 signal result_inverted: std_logic_vector(3 downto 0);
-signal result_hex: std_logic_vector(3 downto 0);
-signal result_dec: std_logic_vector(3 downto 0);
+signal result_hex: std_logic_vector(6 downto 0);
+signal result_dec: std_logic_vector(6 downto 0);
 signal cout: std_logic;
 signal result_neg_sign: std_logic;
 signal result_neg_7bs: std_logic_vector(6 downto 0);
-signal a2hex: std_logic_vector(3 downto 0);
-signal a2dec: std_logic_vector(3 downto 0);
-signal b2hex: std_logic_vector(3 downto 0);
-signal b2dec: std_logic_vector(3 downto 0);
+signal a2hex: std_logic_vector(6 downto 0);
+signal a2dec: std_logic_vector(6 downto 0);
+signal b2hex: std_logic_vector(6 downto 0);
+signal b2dec: std_logic_vector(6 downto 0);
 signal a_is_neg: std_logic;
 signal a_neg_7bs: std_logic_vector(6 downto 0);
 signal b_is_neg: std_logic;
@@ -34,7 +34,7 @@ begin
   to_a <= SW(7) & SW(6) & SW(5) & SW(4);
   to_b <= SW(3) & SW(2) & SW(1) & SW(0);
   to_s1 <= SW(8);
-  alu: entity work.alu port map(
+  my_alu: entity work.alu port map(
         a => to_a,
         b => to_b,
         s0 => SW(9),
@@ -82,7 +82,8 @@ begin
         segs => result_dec,
         neg => result_neg_sign
   );
-  result_neg_7bs <= result_neg_sign & result_neg_sign & result_neg_sign & result_neg_sign & result_neg_sign & result_neg_sign & resul>
+  result_neg_7bs <= result_neg_sign & result_neg_sign & result_neg_sign &
+  result_neg_sign & result_neg_sign & result_neg_sign & result_neg_sign;
   HEX1 <= "0000001" and (result_neg_7bs and not s1_7bs);
 
   HEX0 <= (result_dec and not s1_7bs) or (result_hex and s1_7bs);

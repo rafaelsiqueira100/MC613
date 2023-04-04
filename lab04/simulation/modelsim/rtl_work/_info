@@ -1,0 +1,149 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab04/simulation/modelsim
+Ebin2hex
+Z1 w1680538395
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z4 8/home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab04/bin2hex.vhd
+Z5 F/home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab04/bin2hex.vhd
+l0
+L4
+VE6YE:]HCLlA8hgLXo^YG@3
+!s100 z`Yc<7AVHM]b[h>:7IoL`1
+Z6 OV;C;10.5b;63
+31
+Z7 !s110 1680628151
+!i10b 1
+Z8 !s108 1680628151.000000
+Z9 !s90 -reportprogress|300|-93|-work|work|/home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab04/bin2hex.vhd|
+Z10 !s107 /home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab04/bin2hex.vhd|
+!i113 1
+Z11 o-93 -work work
+Z12 tExplicit 1 CvgOpt 0
+Alogicfunction2
+R2
+R3
+DEx4 work 7 bin2hex 0 22 E6YE:]HCLlA8hgLXo^YG@3
+l23
+L22
+ViiVA51_nJ_Ie@:l6h37mQ3
+!s100 e?Y2@KKMYmR0?TVNMEZ]G0
+R6
+31
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Efull_adder
+Z13 w1680614361
+R2
+R3
+R0
+Z14 8/home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab04/full_adder.vhd
+Z15 F/home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab04/full_adder.vhd
+l0
+L4
+VkgfVcJ:koWY1kf_1PX<MN0
+!s100 @McazTGb7>A5lN>_:83>43
+R6
+31
+R7
+!i10b 1
+R8
+Z16 !s90 -reportprogress|300|-93|-work|work|/home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab04/full_adder.vhd|
+Z17 !s107 /home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab04/full_adder.vhd|
+!i113 1
+R11
+R12
+Astructural
+R2
+R3
+Z18 DEx4 work 10 full_adder 0 22 kgfVcJ:koWY1kf_1PX<MN0
+l14
+L13
+VbXRi]OnRcZ3=W>B`]HV5>3
+!s100 K^>XMoUiGX1e]D@HVV>=>3
+R6
+31
+R7
+!i10b 1
+R8
+R16
+R17
+!i113 1
+R11
+R12
+Eripple_carry
+R13
+R2
+R3
+R0
+Z19 8/home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab04/ripple_carry.vhd
+Z20 F/home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab04/ripple_carry.vhd
+l0
+L4
+VSWEAMO[mESQ_O_<13G_Gi1
+!s100 @WibkNdB1RV1;LJ@[N??O2
+R6
+31
+R7
+!i10b 1
+R8
+Z21 !s90 -reportprogress|300|-93|-work|work|/home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab04/ripple_carry.vhd|
+Z22 !s107 /home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab04/ripple_carry.vhd|
+!i113 1
+R11
+R12
+Artl
+R18
+R2
+R3
+DEx4 work 12 ripple_carry 0 22 SWEAMO[mESQ_O_<13G_Gi1
+l19
+L17
+Vj]NkoRFRT696Q86g@elEU1
+!s100 Rh3hX?aG3M8oH4k;f4G`73
+R6
+31
+R7
+!i10b 1
+R8
+R21
+R22
+!i113 1
+R11
+R12
+Eripple_carry_board
+R13
+R2
+R3
+R0
+8/home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab04/ripple_carry_board.vhd
+F/home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab04/ripple_carry_board.vhd
+l0
+L4
+VR0k[Wao9`IICI2BBW^5ai1
+!s100 7QS29YD<D[Tj0B[OmZgPL3
+R6
+31
+R7
+!i10b 1
+R8
+!s90 -reportprogress|300|-93|-work|work|/home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab04/ripple_carry_board.vhd|
+!s107 /home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab04/ripple_carry_board.vhd|
+!i113 1
+R11
+R12

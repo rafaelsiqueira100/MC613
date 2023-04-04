@@ -1,4 +1,3 @@
-  GNU nano 4.3                                                   add.vhd                                                              
 library ieee;
 use ieee.std_logic_1164.all;
 
@@ -33,10 +32,10 @@ begin
                 overflow => overflow
   );
   condition <= (not b(3)) and s0;
-  result_carry_board_inverted <= ((not result_carry_board(3) & not result_carry_board(2) & not result_carry_board(1) & not result_car>
+  result_carry_board_inverted <= ((not result_carry_board(3) & not result_carry_board(2) & not result_carry_board(1) & not result_carry_board(0))
+  and (condition & condition & condition & condition)) or result_carry_board;
   result_logic <= ((a and b) and (not s0)&(not s0)&(not s0)&(not s0)) or ((a or b) and s0 & s0 &s0 & s0);
-  result <= (result_logic and s1 & s1 & s1 & s1) or (result_carry_board and not s1 & not s1 & not s1 & not s1);
-  N <= not (result(0) or result(1) or result(2) or result(3));
+  result <= (result_logic and s1 & s1 & s1 & s1) or (result_carry_board_inverted and not s1 & not s1 & not s1 & not s1);
   C <= cout and not s1;
   V <= overflow and not s1;
   N <= result(3) and not s1;
