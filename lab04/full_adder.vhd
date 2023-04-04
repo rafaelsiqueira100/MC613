@@ -16,3 +16,19 @@ begin
   r <= x XOR y XOR cin;
   cout <= (x AND y) OR (x AND cin) OR (y AND cin);
 end structural;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

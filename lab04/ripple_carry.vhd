@@ -15,15 +15,24 @@ entity ripple_carry is
 end ripple_carry;
 
 architecture rtl of ripple_carry is
-	signal carry : std_logic_vector(N downto 0);
+        signal carry : std_logic_vector(N downto 0);
 begin
   -- add your code
-	carry(0) <= cin;
-	RippleCarryAdder: for i in 0 to N-1 generate
-		adder: entity work.full_adder port map (x => x(i), y => y(i), cin => carry(i), r => r(i), cout => carry(i+1));
-	end generate;
-	
-	cout <= carry(N);
-	overflow <= carry(N-1) XOR carry(N);
-	
+        carry(0) <= cin;
+        RippleCarryAdder: for i in 0 to N-1 generate
+                adder: entity work.full_adder port map (x => x(i), y => y(i), cin => carry(i), r => r(i), cout => carry(i+1));
+        end generate;
+
+        cout <= carry(N);
+        overflow <= carry(N-1) XOR carry(N);
+
 end rtl;
+
+
+
+
+
+
+
+
+

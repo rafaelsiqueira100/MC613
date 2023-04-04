@@ -27,3 +27,15 @@ BEGIN
                          "0000000";
 END Bin2DecLogicFunction;
 
+
+
+
+
+
+
+
+
+
+
+
+

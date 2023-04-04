@@ -23,7 +23,7 @@ begin
           x => SW(7) & SW(6) & SW(5) & SW(4),
           y => SW(3) & SW(2) & SW(1) & SW(0),
           r => R,
-          cin => 0,
+          cin => '0',
           overflow => LEDR(0)
   );
   hex4creator: entity work.bin2hex port map(
@@ -39,3 +39,5 @@ begin
                 hex => HEX0
   );
 end rtl;
+
+

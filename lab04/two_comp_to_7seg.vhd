@@ -1,3 +1,4 @@
+  GNU nano 4.3                                             two_comp_to_7seg.vhd                                                       
 library ieee;
 use ieee.std_logic_1164.all;
 USE ieee.numeric_std.all;
@@ -33,3 +34,16 @@ begin
         neg <=  bin(3) ;
 
 end behavioral;
+
+
+
+
+
+
+
+
+
+
+
+
+
