@@ -20,14 +20,16 @@ architecture behavioral_alu of alu is
         signal second_adder: std_logic_vector(3 downto 0);
         signal result_logic: std_logic_vector(3 downto 0);
         signal result: std_logic_vector(3 downto 0);
+		  signal to_cin : std_logic;
 begin
   -- add your code
   second_adder_inverted <= not b(3) & not b(2) & not b(1) & not b(0);
+  to_cin <= b(3) and s0;
   rc: entity work.ripple_carry port map(
                 x => a,
                 y => second_adder,
                 r => result_carry_board,
-                cin => b(3) and s0,
+                cin => to_cin,
                 cout => cout,
                 overflow => overflow
   );
