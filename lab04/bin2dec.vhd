@@ -1,3 +1,6 @@
+--Nome: Rafael Andre Alves de Siqueira RA: 243360
+--Nome: Natan Rodrigues de Oliveira    RA: 175154
+
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 USE ieee.numeric_std.all;
