@@ -40,7 +40,5 @@ begin
 	or (w(1) and not s(1) and s(0))
 	or (w(2) and s(1) and not s(0))
 	or (w(3) and s(1) and s(0));
-	
-  -- add your code!
 end rtl;
 
