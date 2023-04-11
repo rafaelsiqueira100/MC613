@@ -1,1 +1,4 @@
 *.zip
+output_files/
+*.bak
+*.qsf
