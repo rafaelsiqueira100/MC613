@@ -1,8 +1,3 @@
-<<<<<<< HEAD
--- brief : lab05 - question 2
-
-=======
->>>>>>> cf96879 (cla lab05)
 library ieee;
 use ieee.std_logic_1164.all;
 
@@ -16,13 +11,6 @@ entity cla_4bits is
   );
 end cla_4bits;
 
-<<<<<<< HEAD
-architecture rtl of cla_4bits is
-begin
-  -- add your code!
-end rtl;
-
-=======
 -- Para resolver o lab05 CLA, usamos a relaçao dos carries calculados a priori de acordo com
 -- a seguinte expressao c(i) = g(i-1) + p(i-1)c(i-1), ou seja, o i-esimo carry eh obtido por meio
 -- do AND dos operandos anteriores e do OR com AND do carry anterior. Mas, o carry anterior eh obtido
@@ -52,4 +40,3 @@ begin
 		sum(j) <= x(j) XOR y(j) XOR carry(j);
 	end generate sum_loop;
 end rtl;
->>>>>>> cf96879 (cla lab05)
