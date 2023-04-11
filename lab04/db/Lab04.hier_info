@@ -1,45 +1,194 @@
-|ripple_carry_board
-SW[0] => ripple_carry:adder.y[0]
-SW[0] => bin2hex:hex2creator.bin[0]
-SW[1] => ripple_carry:adder.y[1]
-SW[1] => bin2hex:hex2creator.bin[1]
-SW[2] => ripple_carry:adder.y[2]
-SW[2] => bin2hex:hex2creator.bin[2]
-SW[3] => ripple_carry:adder.y[3]
-SW[3] => bin2hex:hex2creator.bin[3]
-SW[4] => ripple_carry:adder.x[0]
-SW[4] => bin2hex:hex4creator.bin[0]
-SW[5] => ripple_carry:adder.x[1]
-SW[5] => bin2hex:hex4creator.bin[1]
-SW[6] => ripple_carry:adder.x[2]
-SW[6] => bin2hex:hex4creator.bin[2]
-SW[7] => ripple_carry:adder.x[3]
-SW[7] => bin2hex:hex4creator.bin[3]
-HEX4[0] << bin2hex:hex4creator.hex[0]
-HEX4[1] << bin2hex:hex4creator.hex[1]
-HEX4[2] << bin2hex:hex4creator.hex[2]
-HEX4[3] << bin2hex:hex4creator.hex[3]
-HEX4[4] << bin2hex:hex4creator.hex[4]
-HEX4[5] << bin2hex:hex4creator.hex[5]
-HEX4[6] << bin2hex:hex4creator.hex[6]
-HEX2[0] << bin2hex:hex2creator.hex[0]
-HEX2[1] << bin2hex:hex2creator.hex[1]
-HEX2[2] << bin2hex:hex2creator.hex[2]
-HEX2[3] << bin2hex:hex2creator.hex[3]
-HEX2[4] << bin2hex:hex2creator.hex[4]
-HEX2[5] << bin2hex:hex2creator.hex[5]
-HEX2[6] << bin2hex:hex2creator.hex[6]
-HEX0[0] << bin2hex:hex0creator.hex[0]
-HEX0[1] << bin2hex:hex0creator.hex[1]
-HEX0[2] << bin2hex:hex0creator.hex[2]
-HEX0[3] << bin2hex:hex0creator.hex[3]
-HEX0[4] << bin2hex:hex0creator.hex[4]
-HEX0[5] << bin2hex:hex0creator.hex[5]
-HEX0[6] << bin2hex:hex0creator.hex[6]
-LEDR[0] << ripple_carry:adder.overflow
+|alu_board
+SW[0] => alu:my_alu.b[0]
+SW[0] => bin2hex:b_to_hex.bin[0]
+SW[0] => two_comp_to_7seg:b_to_dec.bin[0]
+SW[1] => alu:my_alu.b[1]
+SW[1] => bin2hex:b_to_hex.bin[1]
+SW[1] => two_comp_to_7seg:b_to_dec.bin[1]
+SW[2] => alu:my_alu.b[2]
+SW[2] => bin2hex:b_to_hex.bin[2]
+SW[2] => two_comp_to_7seg:b_to_dec.bin[2]
+SW[3] => alu:my_alu.b[3]
+SW[3] => bin2hex:b_to_hex.bin[3]
+SW[3] => two_comp_to_7seg:b_to_dec.bin[3]
+SW[4] => alu:my_alu.a[0]
+SW[4] => bin2hex:a_to_hex.bin[0]
+SW[4] => two_comp_to_7seg:a_to_dec.bin[0]
+SW[5] => alu:my_alu.a[1]
+SW[5] => bin2hex:a_to_hex.bin[1]
+SW[5] => two_comp_to_7seg:a_to_dec.bin[1]
+SW[6] => alu:my_alu.a[2]
+SW[6] => bin2hex:a_to_hex.bin[2]
+SW[6] => two_comp_to_7seg:a_to_dec.bin[2]
+SW[7] => alu:my_alu.a[3]
+SW[7] => bin2hex:a_to_hex.bin[3]
+SW[7] => two_comp_to_7seg:a_to_dec.bin[3]
+SW[8] => HEX4.IN1
+SW[8] => HEX4.IN1
+SW[8] => HEX4.IN1
+SW[8] => HEX4.IN1
+SW[8] => HEX4.IN1
+SW[8] => HEX4.IN1
+SW[8] => HEX4.IN1
+SW[8] => HEX5.IN1
+SW[8] => HEX2.IN1
+SW[8] => HEX2.IN1
+SW[8] => HEX2.IN1
+SW[8] => HEX2.IN1
+SW[8] => HEX2.IN1
+SW[8] => HEX2.IN1
+SW[8] => HEX2.IN1
+SW[8] => HEX3.IN1
+SW[8] => HEX1.IN1
+SW[8] => HEX0.IN1
+SW[8] => HEX0.IN1
+SW[8] => HEX0.IN1
+SW[8] => HEX0.IN1
+SW[8] => HEX0.IN1
+SW[8] => HEX0.IN1
+SW[8] => HEX0.IN1
+SW[8] => alu:my_alu.s1
+SW[8] => HEX4.IN1
+SW[8] => HEX2.IN1
+SW[8] => HEX0.IN1
+SW[8] => HEX4.IN1
+SW[8] => HEX2.IN1
+SW[8] => HEX0.IN1
+SW[8] => HEX4.IN1
+SW[8] => HEX2.IN1
+SW[8] => HEX0.IN1
+SW[8] => HEX4.IN1
+SW[8] => HEX2.IN1
+SW[8] => HEX0.IN1
+SW[8] => HEX4.IN1
+SW[8] => HEX2.IN1
+SW[8] => HEX0.IN1
+SW[8] => HEX4.IN1
+SW[8] => HEX2.IN1
+SW[8] => HEX0.IN1
+SW[8] => HEX4.IN1
+SW[8] => HEX2.IN1
+SW[8] => HEX0.IN1
+SW[9] => alu:my_alu.s0
+HEX5[0] <= HEX5.DB_MAX_OUTPUT_PORT_TYPE
+HEX5[1] <= <VCC>
+HEX5[2] <= <VCC>
+HEX5[3] <= <VCC>
+HEX5[4] <= <VCC>
+HEX5[5] <= <VCC>
+HEX5[6] <= <VCC>
+HEX4[0] <= HEX4.DB_MAX_OUTPUT_PORT_TYPE
+HEX4[1] <= HEX4.DB_MAX_OUTPUT_PORT_TYPE
+HEX4[2] <= HEX4.DB_MAX_OUTPUT_PORT_TYPE
+HEX4[3] <= HEX4.DB_MAX_OUTPUT_PORT_TYPE
+HEX4[4] <= HEX4.DB_MAX_OUTPUT_PORT_TYPE
+HEX4[5] <= HEX4.DB_MAX_OUTPUT_PORT_TYPE
+HEX4[6] <= HEX4.DB_MAX_OUTPUT_PORT_TYPE
+HEX3[0] <= HEX3.DB_MAX_OUTPUT_PORT_TYPE
+HEX3[1] <= <VCC>
+HEX3[2] <= <VCC>
+HEX3[3] <= <VCC>
+HEX3[4] <= <VCC>
+HEX3[5] <= <VCC>
+HEX3[6] <= <VCC>
+HEX2[0] <= HEX2.DB_MAX_OUTPUT_PORT_TYPE
+HEX2[1] <= HEX2.DB_MAX_OUTPUT_PORT_TYPE
+HEX2[2] <= HEX2.DB_MAX_OUTPUT_PORT_TYPE
+HEX2[3] <= HEX2.DB_MAX_OUTPUT_PORT_TYPE
+HEX2[4] <= HEX2.DB_MAX_OUTPUT_PORT_TYPE
+HEX2[5] <= HEX2.DB_MAX_OUTPUT_PORT_TYPE
+HEX2[6] <= HEX2.DB_MAX_OUTPUT_PORT_TYPE
+HEX1[0] <= HEX1.DB_MAX_OUTPUT_PORT_TYPE
+HEX1[1] <= <VCC>
+HEX1[2] <= <VCC>
+HEX1[3] <= <VCC>
+HEX1[4] <= <VCC>
+HEX1[5] <= <VCC>
+HEX1[6] <= <VCC>
+HEX0[0] <= HEX0.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[1] <= HEX0.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[2] <= HEX0.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[3] <= HEX0.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[4] <= HEX0.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[5] <= HEX0.DB_MAX_OUTPUT_PORT_TYPE
+HEX0[6] <= HEX0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[0] <= alu:my_alu.N
+LEDR[1] <= alu:my_alu.V
+LEDR[2] <= alu:my_alu.C
+LEDR[3] <= alu:my_alu.Z
 
 
-|ripple_carry_board|ripple_carry:adder
+|alu_board|alu:my_alu
+a[0] => result_logic.IN0
+a[0] => result_logic.IN0
+a[0] => ripple_carry:rc.x[0]
+a[1] => result_logic.IN0
+a[1] => result_logic.IN0
+a[1] => ripple_carry:rc.x[1]
+a[2] => result_logic.IN0
+a[2] => result_logic.IN0
+a[2] => ripple_carry:rc.x[2]
+a[3] => result_logic.IN0
+a[3] => result_logic.IN0
+a[3] => ripple_carry:rc.x[3]
+b[0] => second_adder.IN0
+b[0] => result_logic.IN1
+b[0] => result_logic.IN1
+b[0] => second_adder.IN0
+b[1] => second_adder.IN0
+b[1] => result_logic.IN1
+b[1] => result_logic.IN1
+b[1] => second_adder.IN0
+b[2] => second_adder.IN0
+b[2] => result_logic.IN1
+b[2] => result_logic.IN1
+b[2] => second_adder.IN0
+b[3] => second_adder.IN0
+b[3] => to_cin.IN0
+b[3] => result_logic.IN1
+b[3] => result_logic.IN1
+b[3] => second_adder.IN0
+b[3] => condition.IN0
+F[0] <= result.DB_MAX_OUTPUT_PORT_TYPE
+F[1] <= result.DB_MAX_OUTPUT_PORT_TYPE
+F[2] <= result.DB_MAX_OUTPUT_PORT_TYPE
+F[3] <= result.DB_MAX_OUTPUT_PORT_TYPE
+s0 => second_adder.IN1
+s0 => second_adder.IN1
+s0 => second_adder.IN1
+s0 => second_adder.IN1
+s0 => to_cin.IN1
+s0 => condition.IN1
+s0 => result_logic.IN1
+s0 => result_logic.IN1
+s0 => result_logic.IN1
+s0 => result_logic.IN1
+s0 => second_adder.IN1
+s0 => second_adder.IN1
+s0 => second_adder.IN1
+s0 => second_adder.IN1
+s0 => result_logic.IN1
+s0 => result_logic.IN1
+s0 => result_logic.IN1
+s0 => result_logic.IN1
+s1 => result.IN1
+s1 => result.IN1
+s1 => result.IN1
+s1 => result.IN1
+s1 => result.IN1
+s1 => result.IN1
+s1 => result.IN1
+s1 => result.IN1
+s1 => C.IN1
+s1 => V.IN1
+s1 => N.IN1
+Z <= Z.DB_MAX_OUTPUT_PORT_TYPE
+C <= C.DB_MAX_OUTPUT_PORT_TYPE
+V <= V.DB_MAX_OUTPUT_PORT_TYPE
+N <= N.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu_board|alu:my_alu|ripple_carry:rc
 x[0] => full_adder:RippleCarryAdder:0:adder.x
 x[1] => full_adder:RippleCarryAdder:1:adder.x
 x[2] => full_adder:RippleCarryAdder:2:adder.x
@@ -57,7 +206,7 @@ cout <= full_adder:RippleCarryAdder:3:adder.cout
 overflow <= overflow.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ripple_carry_board|ripple_carry:adder|full_adder:\RippleCarryAdder:0:adder
+|alu_board|alu:my_alu|ripple_carry:rc|full_adder:\RippleCarryAdder:0:adder
 x => r.IN0
 x => cout.IN0
 x => cout.IN0
@@ -71,7 +220,7 @@ cin => cout.IN1
 cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ripple_carry_board|ripple_carry:adder|full_adder:\RippleCarryAdder:1:adder
+|alu_board|alu:my_alu|ripple_carry:rc|full_adder:\RippleCarryAdder:1:adder
 x => r.IN0
 x => cout.IN0
 x => cout.IN0
@@ -85,7 +234,7 @@ cin => cout.IN1
 cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ripple_carry_board|ripple_carry:adder|full_adder:\RippleCarryAdder:2:adder
+|alu_board|alu:my_alu|ripple_carry:rc|full_adder:\RippleCarryAdder:2:adder
 x => r.IN0
 x => cout.IN0
 x => cout.IN0
@@ -99,7 +248,7 @@ cin => cout.IN1
 cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ripple_carry_board|ripple_carry:adder|full_adder:\RippleCarryAdder:3:adder
+|alu_board|alu:my_alu|ripple_carry:rc|full_adder:\RippleCarryAdder:3:adder
 x => r.IN0
 x => cout.IN0
 x => cout.IN0
@@ -113,7 +262,7 @@ cin => cout.IN1
 cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ripple_carry_board|bin2hex:hex4creator
+|alu_board|bin2hex:a_to_hex
 bin[0] => hex.IN1
 bin[0] => hex.IN1
 bin[0] => hex.IN1
@@ -182,7 +331,79 @@ hex[5] <= hex.DB_MAX_OUTPUT_PORT_TYPE
 hex[6] <= hex.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ripple_carry_board|bin2hex:hex2creator
+|alu_board|two_comp_to_7seg:a_to_dec
+bin[0] => Equal0.IN7
+bin[0] => Equal1.IN7
+bin[0] => Equal2.IN7
+bin[0] => Equal3.IN7
+bin[0] => Equal4.IN7
+bin[0] => Equal5.IN7
+bin[0] => Equal6.IN7
+bin[0] => Equal7.IN7
+bin[0] => Equal8.IN7
+bin[0] => Equal9.IN7
+bin[0] => Equal10.IN7
+bin[0] => Equal11.IN7
+bin[0] => Equal12.IN7
+bin[0] => Equal13.IN7
+bin[0] => Equal14.IN7
+bin[1] => Equal0.IN6
+bin[1] => Equal1.IN6
+bin[1] => Equal2.IN6
+bin[1] => Equal3.IN6
+bin[1] => Equal4.IN6
+bin[1] => Equal5.IN6
+bin[1] => Equal6.IN6
+bin[1] => Equal7.IN6
+bin[1] => Equal8.IN6
+bin[1] => Equal9.IN6
+bin[1] => Equal10.IN6
+bin[1] => Equal11.IN6
+bin[1] => Equal12.IN6
+bin[1] => Equal13.IN6
+bin[1] => Equal14.IN6
+bin[2] => Equal0.IN5
+bin[2] => Equal1.IN5
+bin[2] => Equal2.IN5
+bin[2] => Equal3.IN5
+bin[2] => Equal4.IN5
+bin[2] => Equal5.IN5
+bin[2] => Equal6.IN5
+bin[2] => Equal7.IN5
+bin[2] => Equal8.IN5
+bin[2] => Equal9.IN5
+bin[2] => Equal10.IN5
+bin[2] => Equal11.IN5
+bin[2] => Equal12.IN5
+bin[2] => Equal13.IN5
+bin[2] => Equal14.IN5
+bin[3] => Equal0.IN4
+bin[3] => Equal1.IN4
+bin[3] => Equal2.IN4
+bin[3] => Equal3.IN4
+bin[3] => Equal4.IN4
+bin[3] => Equal5.IN4
+bin[3] => Equal6.IN4
+bin[3] => Equal7.IN4
+bin[3] => Equal8.IN4
+bin[3] => Equal9.IN4
+bin[3] => Equal10.IN4
+bin[3] => Equal11.IN4
+bin[3] => Equal12.IN4
+bin[3] => Equal13.IN4
+bin[3] => Equal14.IN4
+bin[3] => neg.DATAIN
+segs[0] <= segs.DB_MAX_OUTPUT_PORT_TYPE
+segs[1] <= segs.DB_MAX_OUTPUT_PORT_TYPE
+segs[2] <= segs.DB_MAX_OUTPUT_PORT_TYPE
+segs[3] <= segs.DB_MAX_OUTPUT_PORT_TYPE
+segs[4] <= segs.DB_MAX_OUTPUT_PORT_TYPE
+segs[5] <= segs.DB_MAX_OUTPUT_PORT_TYPE
+segs[6] <= segs.DB_MAX_OUTPUT_PORT_TYPE
+neg <= bin[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu_board|bin2hex:b_to_hex
 bin[0] => hex.IN1
 bin[0] => hex.IN1
 bin[0] => hex.IN1
@@ -251,7 +472,79 @@ hex[5] <= hex.DB_MAX_OUTPUT_PORT_TYPE
 hex[6] <= hex.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ripple_carry_board|bin2hex:hex0creator
+|alu_board|two_comp_to_7seg:b_to_dec
+bin[0] => Equal0.IN7
+bin[0] => Equal1.IN7
+bin[0] => Equal2.IN7
+bin[0] => Equal3.IN7
+bin[0] => Equal4.IN7
+bin[0] => Equal5.IN7
+bin[0] => Equal6.IN7
+bin[0] => Equal7.IN7
+bin[0] => Equal8.IN7
+bin[0] => Equal9.IN7
+bin[0] => Equal10.IN7
+bin[0] => Equal11.IN7
+bin[0] => Equal12.IN7
+bin[0] => Equal13.IN7
+bin[0] => Equal14.IN7
+bin[1] => Equal0.IN6
+bin[1] => Equal1.IN6
+bin[1] => Equal2.IN6
+bin[1] => Equal3.IN6
+bin[1] => Equal4.IN6
+bin[1] => Equal5.IN6
+bin[1] => Equal6.IN6
+bin[1] => Equal7.IN6
+bin[1] => Equal8.IN6
+bin[1] => Equal9.IN6
+bin[1] => Equal10.IN6
+bin[1] => Equal11.IN6
+bin[1] => Equal12.IN6
+bin[1] => Equal13.IN6
+bin[1] => Equal14.IN6
+bin[2] => Equal0.IN5
+bin[2] => Equal1.IN5
+bin[2] => Equal2.IN5
+bin[2] => Equal3.IN5
+bin[2] => Equal4.IN5
+bin[2] => Equal5.IN5
+bin[2] => Equal6.IN5
+bin[2] => Equal7.IN5
+bin[2] => Equal8.IN5
+bin[2] => Equal9.IN5
+bin[2] => Equal10.IN5
+bin[2] => Equal11.IN5
+bin[2] => Equal12.IN5
+bin[2] => Equal13.IN5
+bin[2] => Equal14.IN5
+bin[3] => Equal0.IN4
+bin[3] => Equal1.IN4
+bin[3] => Equal2.IN4
+bin[3] => Equal3.IN4
+bin[3] => Equal4.IN4
+bin[3] => Equal5.IN4
+bin[3] => Equal6.IN4
+bin[3] => Equal7.IN4
+bin[3] => Equal8.IN4
+bin[3] => Equal9.IN4
+bin[3] => Equal10.IN4
+bin[3] => Equal11.IN4
+bin[3] => Equal12.IN4
+bin[3] => Equal13.IN4
+bin[3] => Equal14.IN4
+bin[3] => neg.DATAIN
+segs[0] <= segs.DB_MAX_OUTPUT_PORT_TYPE
+segs[1] <= segs.DB_MAX_OUTPUT_PORT_TYPE
+segs[2] <= segs.DB_MAX_OUTPUT_PORT_TYPE
+segs[3] <= segs.DB_MAX_OUTPUT_PORT_TYPE
+segs[4] <= segs.DB_MAX_OUTPUT_PORT_TYPE
+segs[5] <= segs.DB_MAX_OUTPUT_PORT_TYPE
+segs[6] <= segs.DB_MAX_OUTPUT_PORT_TYPE
+neg <= bin[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu_board|bin2hex:result2hex
 bin[0] => hex.IN1
 bin[0] => hex.IN1
 bin[0] => hex.IN1
@@ -318,5 +611,77 @@ hex[3] <= hex.DB_MAX_OUTPUT_PORT_TYPE
 hex[4] <= hex.DB_MAX_OUTPUT_PORT_TYPE
 hex[5] <= hex.DB_MAX_OUTPUT_PORT_TYPE
 hex[6] <= hex.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|alu_board|two_comp_to_7seg:result2dec
+bin[0] => Equal0.IN7
+bin[0] => Equal1.IN7
+bin[0] => Equal2.IN7
+bin[0] => Equal3.IN7
+bin[0] => Equal4.IN7
+bin[0] => Equal5.IN7
+bin[0] => Equal6.IN7
+bin[0] => Equal7.IN7
+bin[0] => Equal8.IN7
+bin[0] => Equal9.IN7
+bin[0] => Equal10.IN7
+bin[0] => Equal11.IN7
+bin[0] => Equal12.IN7
+bin[0] => Equal13.IN7
+bin[0] => Equal14.IN7
+bin[1] => Equal0.IN6
+bin[1] => Equal1.IN6
+bin[1] => Equal2.IN6
+bin[1] => Equal3.IN6
+bin[1] => Equal4.IN6
+bin[1] => Equal5.IN6
+bin[1] => Equal6.IN6
+bin[1] => Equal7.IN6
+bin[1] => Equal8.IN6
+bin[1] => Equal9.IN6
+bin[1] => Equal10.IN6
+bin[1] => Equal11.IN6
+bin[1] => Equal12.IN6
+bin[1] => Equal13.IN6
+bin[1] => Equal14.IN6
+bin[2] => Equal0.IN5
+bin[2] => Equal1.IN5
+bin[2] => Equal2.IN5
+bin[2] => Equal3.IN5
+bin[2] => Equal4.IN5
+bin[2] => Equal5.IN5
+bin[2] => Equal6.IN5
+bin[2] => Equal7.IN5
+bin[2] => Equal8.IN5
+bin[2] => Equal9.IN5
+bin[2] => Equal10.IN5
+bin[2] => Equal11.IN5
+bin[2] => Equal12.IN5
+bin[2] => Equal13.IN5
+bin[2] => Equal14.IN5
+bin[3] => Equal0.IN4
+bin[3] => Equal1.IN4
+bin[3] => Equal2.IN4
+bin[3] => Equal3.IN4
+bin[3] => Equal4.IN4
+bin[3] => Equal5.IN4
+bin[3] => Equal6.IN4
+bin[3] => Equal7.IN4
+bin[3] => Equal8.IN4
+bin[3] => Equal9.IN4
+bin[3] => Equal10.IN4
+bin[3] => Equal11.IN4
+bin[3] => Equal12.IN4
+bin[3] => Equal13.IN4
+bin[3] => Equal14.IN4
+bin[3] => neg.DATAIN
+segs[0] <= segs.DB_MAX_OUTPUT_PORT_TYPE
+segs[1] <= segs.DB_MAX_OUTPUT_PORT_TYPE
+segs[2] <= segs.DB_MAX_OUTPUT_PORT_TYPE
+segs[3] <= segs.DB_MAX_OUTPUT_PORT_TYPE
+segs[4] <= segs.DB_MAX_OUTPUT_PORT_TYPE
+segs[5] <= segs.DB_MAX_OUTPUT_PORT_TYPE
+segs[6] <= segs.DB_MAX_OUTPUT_PORT_TYPE
+neg <= bin[3].DB_MAX_OUTPUT_PORT_TYPE
 
 

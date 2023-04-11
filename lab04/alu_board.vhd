@@ -36,7 +36,7 @@ begin
   -- add your code
   to_a <= SW(7) & SW(6) & SW(5) & SW(4);
   to_b <= SW(3) & SW(2) & SW(1) & SW(0);
-  to_s1 <= SW(8);
+  to_s1 <= not(SW(8));
   my_alu: entity work.alu port map(
         a => to_a,
         b => to_b,
@@ -60,7 +60,7 @@ begin
   s1_7bs <= to_s1 & to_s1 & to_s1 & to_s1 & to_s1 & to_s1 & to_s1;
   HEX4 <= (a2hex and s1_7bs) or (a2dec and not s1_7bs);
   a_neg_7bs <= a_is_neg & a_is_neg & a_is_neg & a_is_neg & a_is_neg & a_is_neg & a_is_neg;
-  HEX5 <= "0000001" and (a_neg_7bs and not s1_7bs);
+  HEX5 <= not("0000001" and (a_neg_7bs and not s1_7bs));
   b_to_hex: entity work.bin2hex port map(
         bin => to_b,
         hex => b2hex
@@ -74,7 +74,7 @@ begin
   HEX2 <= (b2hex and s1_7bs) or (b2dec and not s1_7bs);
   b_neg_7bs <= b_is_neg & b_is_neg & b_is_neg & b_is_neg & b_is_neg & b_is_neg & b_is_neg;
 
-  HEX3 <= "0000001" and (b_neg_7bs and not s1_7bs);
+  HEX3 <= not("0000001" and (b_neg_7bs and not s1_7bs));
 
   result2hex: entity work.bin2hex port map(
         bin => result,
@@ -87,7 +87,7 @@ begin
   );
   result_neg_7bs <= result_neg_sign & result_neg_sign & result_neg_sign &
   result_neg_sign & result_neg_sign & result_neg_sign & result_neg_sign;
-  HEX1 <= "0000001" and (result_neg_7bs and not s1_7bs);
+  HEX1 <= not("0000001" and (result_neg_7bs and not s1_7bs));
 
   HEX0 <= (result_dec and not s1_7bs) or (result_hex and s1_7bs);
 end behavioral;

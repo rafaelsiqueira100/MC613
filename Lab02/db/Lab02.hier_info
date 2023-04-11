@@ -18,6 +18,6 @@ e => f.IN1
 e => f.IN1
 e => f.IN1
 e => f.IN1
-f <= f.DB_MAX_OUTPUT_PORT_TYPE
+f << f.DB_MAX_OUTPUT_PORT_TYPE
 
 

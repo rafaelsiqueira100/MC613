@@ -31,38 +31,38 @@ BEGIN
                 --              bin => bin,
                 --              segs => hex(6..0)
                  -- )
-                 hex(0) <= (bin(3) AND NOT bin(1) AND NOT bin(0)) OR
+                 hex(0) <= NOT((bin(3) AND NOT bin(1) AND NOT bin(0)) OR
                                  (bin(3) AND NOT bin(2) AND NOT bin(1)) OR
                                  (NOT bin(3) AND bin(2) AND bin(0))     OR
                                  (NOT bin(2) AND NOT bin(0))            OR
                                  (bin(3) AND bin(1) AND NOT bin(0))     OR
                                  (bin(2) AND bin(1))                    OR
-                                 (NOT bin(3) AND bin(1));
+                                 (NOT bin(3) AND bin(1)));
 
         -- Notamos que a faixa 'b' eh mapeada na funcao logica b = F(0, 1, 2, 3, 4, 7, 8, 9, 10, 13)
         -- A minimizacao resultou em:
         -- w'y'z' + x'y'z + wy'z + x'z' + w'yz + w'x'
-        hex(1) <= (NOT bin(3) AND NOT bin(1) AND NOT bin(0)) OR
+        hex(1) <= NOT((NOT bin(3) AND NOT bin(1) AND NOT bin(0)) OR
                                  (NOT bin(2) AND NOT bin(1) AND bin(0))     OR
                                  (bin(3) AND NOT bin(1) AND bin(0))         OR
                                  (NOT bin(2) AND NOT bin(0))                OR
                                  (NOT bin(3) AND bin(1) AND bin(0))         OR
-                                 (NOT bin(3) AND NOT bin(2));
+                                 (NOT bin(3) AND NOT bin(2)));
 
         -- Notamos que a faixa 'c' eh mapeada na funcao logica c = F(0, 1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13)
         -- A minimizacao resultou em:
         -- w'y' + y'z + w'z + x'(y XNOR z) + w'x + wx'
-        hex(2) <= (NOT bin(3) AND NOT bin(1))           OR
+        hex(2) <= NOT((NOT bin(3) AND NOT bin(1))           OR
                                  (NOT bin(1) AND bin(0))               OR
                                  (NOT bin(3) AND bin(0))               OR
                          (NOT bin(2) AND (bin(1) XNOR bin(0))) OR
                                  (NOT bin(3) AND bin(2))               OR
-                                 (bin(3) AND NOT bin(2));
+                                 (bin(3) AND NOT bin(2)));
 
         -- Notamos que a faixa 'd' eh mapeada na funcao logica d = F(0, 2, 3, 5, 6, 8, 9, 11, 12, 13, 14)
         -- A minimizacao resultou em:
         -- w'x'z' + wy' + x'y'z' + wx'z + x'yz + x(y XOR z) + wxz' + w'yz' + w'x'y
-        hex(3) <= (NOT bin(3) AND NOT bin(2) AND NOT bin(0)) OR
+        hex(3) <= NOT((NOT bin(3) AND NOT bin(2) AND NOT bin(0)) OR
                                  (bin(3) AND NOT bin(1))                    OR
                                  (NOT bin(2) AND NOT bin(1) AND NOT bin(0)) OR
                                  (bin(3) AND NOT bin(2) AND bin(0))         OR
@@ -70,33 +70,33 @@ BEGIN
                                  (bin(2) AND (bin(1) XOR bin(0)))                         OR
                                  (bin(3) AND bin(2) AND NOT bin(0))                       OR
                                  (NOT bin(3) AND bin(1) AND NOT bin(0))   OR
-                                 (NOT bin(3) AND NOT bin(2) AND bin(1));
+                                 (NOT bin(3) AND NOT bin(2) AND bin(1)));
 
         -- Notamos que a faixa 'e' eh mapeada na funcao logica e = F(0, 2, 6, 8, 10, 11, 12, 13, 14, 15)
         -- A minimizacao resultou em:
         -- wx + wy'z' + x'z' + wy + xyz' + w'yz'
-        hex(4) <= (bin(3) AND bin(2)) or
+        hex(4) <= NOT((bin(3) AND bin(2)) or
                                  (bin(3) AND NOT bin(1) AND NOT bin(0)) OR
                                  (NOT bin(2) AND NOT bin(0)) OR
                                  (bin(3) AND bin(1)) OR
                                  (bin(2) AND bin(1) AND (NOT bin(0))) OR
-                                 (NOT(bin(3)) AND bin(1) AND NOT(bin(0)));
+                                 (NOT(bin(3)) AND bin(1) AND NOT(bin(0))));
 
         -- Notamos que a faixa 'f' eh mapeada na funcao logica f = F(4, 5, 6, 8, 9, 10, 11, 12, 14, 15)
         -- A minimizacao resultou em:
         -- wx' + yw + z'x + w'xy'
 
         hex(5) <=
-        (NOT(bin(3)) AND bin(2) AND NOT(bin(1))) OR
+        NOT((NOT(bin(3)) AND bin(2) AND NOT(bin(1))) OR
         (NOT(bin(1)) AND NOT(bin(0))) OR
         (bin(3) AND bin(1)) OR
         (bin(3) AND NOT(bin(2))) OR
-        (bin(2) AND bin(1) AND NOT(bin(0)));
+        (bin(2) AND bin(1) AND NOT(bin(0))));
 
         -- Notamos que a faixa 'g' eh mapeada na funcao logica g = F(2, 3, 4, 5, 6, 8, 9, 10, 11, 13, 14, 15)
         -- A minimizacao resultou em:
         hex(6) <=
-                                 (NOT(bin(3)) AND bin(2) AND NOT(bin(1))) OR
+                                 NOT((NOT(bin(3)) AND bin(2) AND NOT(bin(1))) OR
                                   (NOT(bin(2)) AND bin(1) AND NOT(bin(0))) OR
                                  (bin(3) AND NOT(bin(2))) OR
                                  (bin(3) AND bin(0)) OR
@@ -104,7 +104,7 @@ BEGIN
                                  (bin(3) AND bin(1)) OR
                                  (NOT(bin(3)) AND bin(2) AND NOT(bin(0))) OR
                                  (NOT(bin(3)) AND NOT(bin(2)) AND bin(1)) OR
-				 (bin(1) AND NOT(bin(0)));
+				 (bin(1) AND NOT(bin(0))));
 
 END LogicFunction2;
 
