@@ -1,6 +1,15 @@
 --Nome: Rafael Andre Alves de Siqueira RA: 243360
 --Nome: Natan Rodrigues de Oliveira    RA: 175154
-
+-- Este circuito lógico foi feito para realizar o problema
+-- de transformada uma entrada (4 bits)
+-- em duas saídas :
+-- um bit de sinal (neg) indicando se o resultado é negativo ou não
+-- e um vetor de 7 bits (segs) que indica os segmentos a serem acesos
+-- no display de 7 segmentos 
+-- O resultado leva em conta números binários com sinal
+-- retornando os segmentos de "0" caso não seja o resultado 
+-- em decimal não seja um número 
+-- de -7 a -1 ou 1 a 7
 library ieee;
 use ieee.std_logic_1164.all;
 USE ieee.numeric_std.all;
