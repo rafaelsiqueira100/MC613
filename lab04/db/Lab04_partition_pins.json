@@ -4,7 +4,7 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "HEX5[0]",
+					"name" : "HEX5[6]",
 					"strict" : false
 				},
 				{
@@ -36,7 +36,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "HEX3[0]",
+					"name" : "HEX3[6]",
 					"strict" : false
 				},
 				{
@@ -68,7 +68,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "HEX1[0]",
+					"name" : "HEX1[6]",
 					"strict" : false
 				},
 				{
@@ -140,11 +140,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "SW[1]",
+					"name" : "SW[0]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[0]",
+					"name" : "SW[1]",
 					"strict" : false
 				},
 				{
