@@ -25,7 +25,7 @@ begin
 			end if;
 			if clear = '1' then
 				state <= '0';
-				end if;
+			end if;
 		end if;
 		
 		Q <= state;
