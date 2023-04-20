@@ -1,3 +1,6 @@
+--Nome: Rafael Andre Alves de Siqueira RA:243360
+--Nome: Natan Rodrigues de Oliveira RA: 175154
+
 library ieee;
 use ieee.std_logic_1164.all;
 
@@ -15,9 +18,9 @@ end ff_d;
 -- Implementaçao do flip flop do tipo D, com sinais Preset e Clear.
 -- O sinal clear serve para zerar a saida Q e quando estiver ativo sempre sera aplicado.
 -- Ja o sinal Preset, quando clear nao estiver ativo, servira para setar 1 no sinal de saida Q.
--- Caso ambos estejam desativados, sera mantido o dado ja armazenado no flip-flop.
+-- Caso ambos estejam desativados, sera colocado o dado no flip-flop de acordo com o valor da entrada D
 
--- COmo estamos tratando de um circuito sequencial, fooi usado PROCESS para a execucao sequencial 
+-- Como estamos tratando de um circuito sequencial, fooi usado PROCESS para a execucao sequencial 
 -- da arquitetura definida. O process tera o gatilho definido pela mudanca de clock.
 architecture rtl of ff_d is
 begin
