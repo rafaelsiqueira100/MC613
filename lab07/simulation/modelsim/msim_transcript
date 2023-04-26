@@ -1,0 +1,37 @@
+# do lab07_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying /opt/altera/17.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {/home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab07/dec3_to_8.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:57:50 on Apr 26,2023
+# vcom -reportprogress 300 -93 -work work /home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab07/dec3_to_8.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity dec3_to_8
+# -- Compiling architecture rtl of dec3_to_8
+# End time: 13:57:50 on Apr 26,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+vsim work.dec3_to_8
+# vsim work.dec3_to_8 
+# Start time: 13:57:54 on Apr 26,2023
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.dec3_to_8(rtl)
+add wave -position insertpoint  \
+sim:/dec3_to_8/w(2)
+add wave -position end  sim:/dec3_to_8/w(2)
+add wave -position end  sim:/dec3_to_8/w(1)
+add wave -position end  sim:/dec3_to_8/w(0)
+# End time: 13:59:07 on Apr 26,2023, Elapsed time: 0:01:13
+# Errors: 0, Warnings: 0
