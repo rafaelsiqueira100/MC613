@@ -1,4 +1,4 @@
-# do lab07_run_msim_rtl_vhdl.do
+# do Lab6_run_msim_rtl_vhdl.do
 # if {[file exists rtl_work]} {
 # 	vdel -lib rtl_work -all
 # }
@@ -9,37 +9,34 @@
 # Copying /opt/altera/17.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vcom -93 -work work {/home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab07/reg.vhd}
+# vcom -93 -work work {/home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab06/ff_jk.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 14:17:53 on Apr 26,2023
-# vcom -reportprogress 300 -93 -work work /home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab07/reg.vhd 
+# Start time: 13:19:07 on Apr 19,2023
+# vcom -reportprogress 300 -93 -work work /home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab06/ff_jk.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity reg
-# -- Compiling architecture rtl of reg
-# End time: 14:17:53 on Apr 26,2023, Elapsed time: 0:00:00
+# -- Compiling entity ff_jk
+# -- Compiling architecture behavioral of ff_jk
+# End time: 13:19:07 on Apr 19,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-vsim work.reg
-# vsim work.reg 
-# Start time: 14:18:01 on Apr 26,2023
+vsim work.ff_jk
+# vsim work.ff_jk 
+# Start time: 13:19:12 on Apr 19,2023
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading work.reg(rtl)
-wave create -driver freeze -pattern clock -initialvalue 0 -period 20ps -dutycycle 50 -starttime 0ps -endtime 1280ps sim:/reg/clk
+# Loading work.ff_jk(behavioral)
+wave create -driver freeze -pattern clock -initialvalue 0 -period 100ps -dutycycle 50 -starttime 0ps -endtime 6400ps sim:/ff_jk/clk
 # Editable Wave items are not compatible with the wave window's standard undo-redo.  Standard undo-redo has been disabled.
-wave create -driver freeze -pattern clock -initialvalue 0 -period 400ps -dutycycle 50 -starttime 0ps -endtime 1280ps sim:/reg/load
-wave create -driver freeze -pattern clock -initialvalue 0 -period 40ps -dutycycle 50 -starttime 0ps -endtime 1280ps sim:/reg/load
-# /reg/load already exists in the wave, cannot add twice
-# Usage: wave create -pattern <clock|constant|random|repeater|counter|none> <args>
-# See Command Reference manual for pattern specific <args>
-wave create -driver freeze -pattern clock -initialvalue 0 -period 80ps -dutycycle 50 -starttime 0ps -endtime 1280ps sim:/reg/clear
-wave create -driver freeze -pattern counter -startvalue 0000 -endvalue 1111 -type Range -direction Up -period 80ps -step 1 -repeat forever -range 3 0 -starttime 0ps -endtime 1280ps sim:/reg/data_in
-add wave -position end  sim:/reg/data_out
-restart -f
-wave modify -driver freeze -pattern clock -initialvalue 0 -period 40ps -dutycycle 50 -starttime 0ps -endtime 1280ps Edit:/reg/load
+wave create -driver freeze -pattern clock -initialvalue 0 -period 200ps -dutycycle 50 -starttime 0ps -endtime 6400ps sim:/ff_jk/preset
+wave create -driver freeze -pattern clock -initialvalue 0 -period 400ps -dutycycle 50 -starttime 0ps -endtime 6400ps sim:/ff_jk/clear
+wave create -driver freeze -pattern clock -initialvalue 0 -period 800ps -dutycycle 50 -starttime 0ps -endtime 6400ps sim:/ff_jk/j
+wave create -driver freeze -pattern clock -initialvalue 0 -period 1600ps -dutycycle 50 -starttime 0ps -endtime 6400ps sim:/ff_jk/k
+add wave -position end  sim:/ff_jk/Q
+add wave -position end  sim:/ff_jk/state
+add wave -position end  sim:/ff_jk/Q_n
 run
 # ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
 # ** Warning: (vsim-3116) Problem reading symbols from /lib/libpthread.so.0 : module was loaded at an absolute address.
@@ -50,5 +47,6 @@ run
 # ** Warning: (vsim-3116) Problem reading symbols from /lib/ld-linux.so.2 : module was loaded at an absolute address.
 # ** Warning: (vsim-3116) Problem reading symbols from /lib/libnss_systemd.so.2 : module was loaded at an absolute address.
 # Window cannot be closed because the modal window "Quit Vsim" is still open.
-# End time: 14:22:37 on Apr 26,2023, Elapsed time: 0:04:36
-# Errors: 1, Warnings: 9
+# End time: 13:25:23 on Apr 19,2023, Elapsed time: 0:06:11
+# Errors: 0, Warnings: 9
+# Window cannot be closed because the modal window "Save Needed" is still open.

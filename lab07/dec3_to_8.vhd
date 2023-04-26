@@ -14,13 +14,13 @@ end dec3_to_8;
 architecture rtl of dec3_to_8 is
 begin
 
-  y(0) <= not w(0) and not w(1) and not w(2);
-  y(1) <= w(0) and not w(1) and not w(2);
-  y(2) <= not w(0) and w(1) and not w(2);
-  y(3) <= w(0) and w(1) and not w(2);
-  y(4) <= not w(0) and not w(1) and w(2);
-  y(5) <= w(0) and not w(1) and w(2);
-  y(6) <= not w(0) and w(1) and w(2);
-  y(7) <= w(0) and w(1) and w(2);
+  y(0) <= (not w(0)) and (not w(1)) and (not w(2));
+  y(1) <= w(0) and (not w(1)) and (not w(2));
+  y(2) <= (not w(0)) and (w(1)) and (not w(2));
+  y(3) <= (w(0)) and (w(1)) and (not w(2));
+  y(4) <= (not w(0)) and (not w(1)) and (w(2));
+  y(5) <= (w(0)) and (not w(1)) and (w(2));
+  y(6) <= (not w(0)) and (w(1)) and (w(2));
+  y(7) <= (w(0)) and (w(1)) and (w(2));
 end rtl;
 
