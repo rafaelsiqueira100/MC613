@@ -11,12 +11,14 @@ entity zbuffer is
     f : out std_logic_vector(N-1 downto 0)
   );
 end zbuffer;
--- Funçao zbuffer e geralmente usada em arrays
--- para atribuir o mesmo valor para N bits
--- Permite configurar parametros (N bits)
 
+
+-- Buffer tri-state
+
+-- Implementacao do buffer tri-state que gera uma saida ZZZZ caso o enabler seja 0 ou a entrada X
+-- caso o enabler seja 1.
 architecture behavioral of zbuffer is
-begin  
-  f <= (others => '1') when e = '0' else x;
+begin
+  -- Your code here
+	f <= (others => 'Z') when e = '0' else x;
 end behavioral;
-
