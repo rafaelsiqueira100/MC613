@@ -13,25 +13,25 @@ entity reg is
     clear : in std_logic
   );
 end reg;
--- Entidade de registrador (estado eh o valor data_out)
--- Recebe onda de clock,
--- clear, load e data_in.
--- a cada subida de clock, se clear = 1
--- data_out = 0...0
--- senao, se load = 1 entao data_out = data_in
+
+-- Registrador de N bits com clear e load sincronos
+
+-- Para codificar a arquitetura do registrador de N bits sincrono, consideramos a mudanca de valores na subida do clock,
+-- logo nosso processo espera ate que haja uma mudanca no clock e que esta mudanca seja uma borda de subida.
+-- O clear tem prioridade em cima do load, logo se o clear eh 1, o registrador eh zerado. Caso contrario e se o load for
+-- 1, o registrador armazena o valor de entrada.
 
 architecture rtl of reg is
-
+	constant zero : std_logic_vector(N-1 downto 0) := (others => '0');
 begin
-  process
+  -- Your code here!
+	process
 	begin
-		wait until clk'event and clk='1';
-			if clear = '1' then
-				for i in 0 to N-1 loop
-					data_out(i) <= '0';
-				end loop;
-			elsif load = '1' then
-				data_out <= data_in;
-			end if;
+		wait until clk'event and clk = '1';
+		if clear = '1' then
+			data_out <= zero;
+		elsif load = '1' then
+			data_out <= data_in;
+		end if;
 	end process;
 end rtl;
