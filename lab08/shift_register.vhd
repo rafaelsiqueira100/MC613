@@ -13,25 +13,25 @@ port(
 end shift_register;
 
 architecture rtl of shift_register is
-  last_state: std_logic_vector((N-1) downto 0);
+  signal last_state: std_logic_vector((N-1) downto 0);
 begin
      	process
         begin
              	wait until clk'event and clk = '1';
-                if mode = '01' then
+                if mode = "01" then
                         for i in 0 to N-2 loop
-                                par_out(i) <= last_state(i+1);
+                                last_state(i) <= last_state(i+1);
                         end loop;
-                        par_out(N-1) <= 0;
-                elsif mode = '10' then
+                        last_state(N-1) <= ser_in;
+                elsif mode = "10" then
                         for i in N to 2 loop
-                                        par_out(i) <= last_state(i-1);
+										 last_state(i) <= last_state(i-1);
                         end loop;
-                        par_out(0) <= 0;
-                elsif mode = '11' then
-                        par_out <= par_in;
+                        last_state(0) <= ser_in;
+                elsif mode = "11" then
+                        last_state <= par_in;
                 end if;
-                       	last_state <= par_out;
+                       	par_out <= last_state;
         end process;
 end rtl;
 
