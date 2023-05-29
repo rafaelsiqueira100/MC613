@@ -24,7 +24,9 @@ end bin_to_7seg;
 architecture behavioral of bin_to_7seg is
 begin
   -- add your code
-  segs <= "1111000" when 7 = to_integer(signed(bin)) else
+  segs <= "0010000" when 9 = to_integer(unsigned(bin)) else
+			"0000000" when 8 = to_integer(unsigned(bin)) else
+			"1111000" when 7 = to_integer(signed(bin)) else
          "0000010" when 6 = to_integer(signed(bin)) else
          "0010010" when 5 = to_integer(signed(bin)) else
          "0011001" when 4 = to_integer(signed(bin)) else
