@@ -9,8 +9,8 @@ entity clk_div is
 end clk_div;
 
 architecture behavioral of clk_div is
-	signal counter : integer 0 to 49999999
-	signal max_counter : integer := 49999999
+	signal counter : integer range 0 to 49999999;
+	signal max_counter : integer := 49999999;
 begin
 	process(clk)
 	begin
@@ -18,12 +18,12 @@ begin
 			counter <= counter + 1;
 			if counter = max_counter then
 				counter <= 0;
-				clk_hz <= 1;
+				clk_hz <= '1';
 			else
-				clk_hz <= 0;
+				clk_hz <= '0';
 			end if;
 		else
-			clk_hz <= 0;
+			clk_hz <= '0';
 		end if;
 	end process;
 end behavioral;
