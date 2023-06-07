@@ -44,3 +44,5 @@ run
 # ** Warning: (vsim-3116) Problem reading symbols from /lib/libc.so.6 : module was loaded at an absolute address.
 # ** Warning: (vsim-3116) Problem reading symbols from /lib/ld-linux.so.2 : module was loaded at an absolute address.
 # ** Warning: (vsim-3116) Problem reading symbols from /lib/libnss_systemd.so.2 : module was loaded at an absolute address.
+# End time: 14:26:59 on Jun 07,2023, Elapsed time: 0:05:14
+# Errors: 0, Warnings: 8
