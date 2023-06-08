@@ -7,6 +7,8 @@
 -- entao, chegar no estado C alimentado o sistema com 1 e depois 0
 -- e alimentar com o inverso da sequencia. Isto fara a fsm chegar no estado B cuja saida eh
 -- 1 e assim sera o input do da saida Z do fsm_seq
+--Nome: Rafael Andre Alves de Siqueira RA:243360
+--Nome: Natan Rodrigues de Oliveira RA:175154
 library ieee;
 use ieee.std_logic_1164.all;
 

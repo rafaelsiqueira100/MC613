@@ -18,18 +18,21 @@ entity multiplier is
 end multiplier;
 
 architecture arch of multiplier is
-	signal zeros: std_logic_vector(N-3 downto 0);
+	signal zeros: std_logic_vector(N-1 downto 0);
 	signal modo_fator1 : std_logic_vector(1 downto 0);
 	signal modo_fator2: std_logic_vector(1 downto 0);
-	signal fator1_aux: std_logic_vector(2*N-3 downto 0);
-	signal fator2_aux: std_logic_vector(2*N-3 downto 0);
+	signal fator1_aux: std_logic_vector(2*N-1 downto 0);
+	signal fator2_aux: std_logic_vector(2*N-1 downto 0);
 	signal alu_set: std_logic;
 	signal produto: std_logic_vector(2*N-1 downto 0);
 	signal dados_alu: std_logic_vector(2*N-1 downto 0);
+	signal zeros_a, zeros_b: std_logic_vector(2*N-1 downto 0);
 begin
 	zeros <= (others => '0');
-	fator1_reg: entity work.shift_register generic map (2*N) port map(clk => not clk, mode => modo_fator1, ser_in => '0', par_in => zeros & a, par_out => fator1_aux);
-	fator2_reg: entity work.shift_register generic map (N) port map(clk => not clk, mode => modo_fator2, ser_in => '0', par_in => zeros & b, par_out => fator2_aux);
+	zeros_a <= zeros & a;
+	zeros_b <= zeros & b;
+	fator1_reg: entity work.shift_register generic map (2*N) port map(clk => not clk, mode => modo_fator1, ser_in => '0', par_in => zeros_a, par_out => fator1_aux);
+	fator2_reg: entity work.shift_register generic map (N) port map(clk => not clk, mode => modo_fator2, ser_in => '0', par_in => zeros_b, par_out => fator2_aux);
 	alu		 : entity work.alu generic map (2*N) port map (a => produto, 
 					b => fator2_aux, set => alu_set,	clk => not clk, result => dados_alu);
 	process

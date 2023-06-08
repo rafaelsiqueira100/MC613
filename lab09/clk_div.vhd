@@ -14,7 +14,8 @@ architecture behavioral of clk_div is
 begin
 	process(clk)
 	begin
-		if clk'event and clk = '1' then
+		--if clk'event and clk = '1' then
+		if clk = '1' then
 			counter <= counter + 1;
 			if counter = max_counter then
 				counter <= 0;

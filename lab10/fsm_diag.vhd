@@ -1,3 +1,5 @@
+--Nome: Rafael Andre Alves de Siqueira RA:243360
+--Nome: Natan Rodrigues de Oliveira RA:175154
 library ieee;
 use ieee.std_logic_1164.all;
 
