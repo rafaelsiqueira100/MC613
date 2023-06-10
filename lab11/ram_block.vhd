@@ -1,5 +1,6 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity ram_block is
   port (
@@ -13,13 +14,17 @@ entity ram_block is
 end ram_block;
 
 architecture direct of ram_block is
-signal status: std_logic_vector(1023 downto 0);
+	signal status: std_logic_vector(1023 downto 0) := (others => '0');
+	signal numAddress : integer range 0 to 127;
 begin
-  status <= (others => '0');
-  process(Clock);
-  if Clock'event and Clock = '1' then
-    if WrEn = '1' then
-      status(Address*8+7 downto Address*8) <= Data;
-    Q <= status(Address*8 + 7 downto Address*8); 
-  end if;  
+	process(Clock)
+	begin
+		numAddress <= to_integer(unsigned(Address));
+		if Clock'event and Clock = '1' then
+			if WrEn = '1' then
+				status(numAddress*8+7 downto numAddress*8) <= Data;
+			end if;
+			Q <= status(numAddress*8 + 7 downto numAddress*8); 
+		end if;
+	end process;
 end direct;
