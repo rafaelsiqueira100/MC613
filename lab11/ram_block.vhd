@@ -14,17 +14,20 @@ entity ram_block is
 end ram_block;
 
 architecture direct of ram_block is
-	signal status: std_logic_vector(1023 downto 0) := (others => '0');
 	signal numAddress : integer range 0 to 127;
+	type mem_type is array (0 to 2**7-1)of std_logic_vector(7 downto 0);
+	signal status: mem_type;
 begin
 	process(Clock)
-	begin
-		numAddress <= to_integer(unsigned(Address));
+	begin	
 		if Clock'event and Clock = '1' then
+			numAddress <= to_integer(unsigned(Address));
 			if WrEn = '1' then
-				status(numAddress*8+7 downto numAddress*8) <= Data;
+				--status(numAddress*8+7 downto numAddress*8) <= Data;
+				status(numAddress) <= Data;
 			end if;
-			Q <= status(numAddress*8 + 7 downto numAddress*8); 
+				--Q <= status(numAddress*8 + 7 downto numAddress*8); 
+				Q <= status(numAddress);
 		end if;
 	end process;
 end direct;

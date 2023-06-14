@@ -1,0 +1,100 @@
+# do lab11_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying /opt/altera/17.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {/home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab11/ram.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 17:06:49 on Jun 14,2023
+# vcom -reportprogress 300 -93 -work work /home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab11/ram.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ram
+# -- Compiling architecture rtl of ram
+# End time: 17:06:49 on Jun 14,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab11/ram_block.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 17:06:49 on Jun 14,2023
+# vcom -reportprogress 300 -93 -work work /home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab11/ram_block.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity ram_block
+# -- Compiling architecture direct of ram_block
+# End time: 17:06:49 on Jun 14,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab11/ram_map.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 17:06:49 on Jun 14,2023
+# vcom -reportprogress 300 -93 -work work /home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab11/ram_map.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ram_map
+# -- Compiling architecture arq_ram_map of ram_map
+# End time: 17:06:49 on Jun 14,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+vsim work.ram
+# vsim work.ram 
+# Start time: 17:07:02 on Jun 14,2023
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.ram(rtl)
+# Loading work.ram_map(arq_ram_map)
+# Loading ieee.numeric_std(body)
+# Loading work.ram_block(direct)
+wave create -driver freeze -pattern clock -initialvalue 0 -period 2ps -dutycycle 50 -starttime 0ps -endtime 1000ps sim:/ram/Clock
+# Editable Wave items are not compatible with the wave window's standard undo-redo.  Standard undo-redo has been disabled.
+wave create -driver freeze -pattern clock -initialvalue 0 -period 4ps -dutycycle 50 -starttime 0ps -endtime 1000ps sim:/ram/WrEn
+wave create -driver freeze -pattern random -initialvalue 0000000000 -period 8ps -random_type Uniform -seed 5 -range 9 0 -starttime 0ps -endtime 1000ps sim:/ram/Address
+wave create -driver freeze -pattern random -initialvalue 00000000000000000000000000000000 -period 80ps -random_type Uniform -seed 5 -range 31 0 -starttime 0ps -endtime 1000ps sim:/ram/DataIn
+add wave -position end  sim:/ram/DataOut
+add wave -position end  sim:/ram/first_q
+add wave -position end  sim:/ram/second_q
+add wave -position end  sim:/ram/third_q
+add wave -position end  sim:/ram/fourth_q
+add wave -position end  sim:/ram/fifth_q
+add wave -position end  sim:/ram/sixth_q
+add wave -position end  sim:/ram/seventh_q
+add wave -position end  sim:/ram/eighth_q
+add wave -position end  sim:/ram/wr_enable
+add wave -position end  sim:/ram/address_out
+add wave -position end  sim:/ram/ramBlock
+add wave -position end  sim:/ram/valid_address
+add wave -position end  sim:/ram/address_in
+add wave -position end  sim:/ram/wr_first_block
+add wave -position end  sim:/ram/wr_second_block
+add wave -position end  sim:/ram/firstDataOut
+add wave -position end  sim:/ram/secondDataOut
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Warning: (vsim-3116) Problem reading symbols from /lib/libpthread.so.0 : module was loaded at an absolute address.
+# ** Warning: (vsim-3116) Problem reading symbols from /lib/librt.so.1 : module was loaded at an absolute address.
+# ** Warning: (vsim-3116) Problem reading symbols from /lib/libdl.so.2 : module was loaded at an absolute address.
+# ** Warning: (vsim-3116) Problem reading symbols from /lib/libm.so.6 : module was loaded at an absolute address.
+# ** Warning: (vsim-3116) Problem reading symbols from /lib/libc.so.6 : module was loaded at an absolute address.
+# ** Warning: (vsim-3116) Problem reading symbols from /lib/ld-linux.so.2 : module was loaded at an absolute address.
+# ** Warning: (vsim-3116) Problem reading symbols from /lib/libnss_systemd.so.2 : module was loaded at an absolute address.
+restart
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Warning: (vsim-3116) Problem reading symbols from /lib/libpthread.so.0 : module was loaded at an absolute address.
+# ** Warning: (vsim-3116) Problem reading symbols from /lib/librt.so.1 : module was loaded at an absolute address.
+# ** Warning: (vsim-3116) Problem reading symbols from /lib/libdl.so.2 : module was loaded at an absolute address.
+# ** Warning: (vsim-3116) Problem reading symbols from /lib/libm.so.6 : module was loaded at an absolute address.
+# ** Warning: (vsim-3116) Problem reading symbols from /lib/libc.so.6 : module was loaded at an absolute address.
+# ** Warning: (vsim-3116) Problem reading symbols from /lib/ld-linux.so.2 : module was loaded at an absolute address.
+# ** Warning: (vsim-3116) Problem reading symbols from /lib/libnss_systemd.so.2 : module was loaded at an absolute address.
+# End time: 17:10:47 on Jun 14,2023, Elapsed time: 0:03:45
+# Errors: 0, Warnings: 16
