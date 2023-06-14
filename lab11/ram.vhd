@@ -1,6 +1,10 @@
+--Nome: Rafael Andre Alves de Siqueira RA: 243360
+--Nome: Natan Rodrigues de Oliveira RA: 175154
 library ieee;
 use ieee.std_logic_1164.all;
-
+-- Esta entidade representa a memoria como um todo
+--representada por 8 blocos de memoria menores, cada um com 128 bytes
+-- totalizando 1024 bytes
 entity ram is
   port (
     Clock : in std_logic;

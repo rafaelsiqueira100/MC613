@@ -1,4 +1,7 @@
+--Nome: Rafael Andre Alves de Siqueira RA: 243360
+--Nome: Natan Rodrigues de Oliveira RA: 175154
 library ieee;
+-- Esta entidade representa o mapeamento do bloco de memoria que sera lido de acordo com determinado endereco
 use ieee.std_logic_1164.all;
 entity ram_map is
         port (

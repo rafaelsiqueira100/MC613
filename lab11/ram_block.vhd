@@ -1,7 +1,10 @@
+--Nome: Rafael Andre Alves de Siqueira RA: 243360
+--Nome: Natan Rodrigues de Oliveira RA: 175154
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-
+-- Esta entidade eh responsavel por  armazenar uma unidade de memoria de 128 bytes
+-- e armazenado como um vetor de vetores (128 linhas e 8 colunas de 1 bit)
 entity ram_block is
   port (
     Clock : in std_logic;
