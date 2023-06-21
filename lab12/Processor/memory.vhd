@@ -69,7 +69,7 @@ port (
 end component;
 BEGIN 
 -- Leitura e Escrita independentes!
-
+-- Agora, inves de trabalharmos com 
 wr_first_block <= (not address_in(9)) and (not address_in(8)) and (not address_in(7)) and WE;
 wr_second_block <= address_in(9) and (not address_in(8)) and (not address_in(7)) and WE;
 ramMap: ram_map port map (address_in, ramBlock, address_out, valid_address);
