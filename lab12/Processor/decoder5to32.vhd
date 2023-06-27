@@ -1,15 +1,19 @@
-entity 5to32 is
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity decoder5to32 is
 	port(
 		data_in: std_logic_vector (4 downto 0);
 		enable: in std_logic;
 		data_out: out std_logic_vector (31 downto 0)
 	);
-
-architecture arc of 5to32 is
+end entity;
+	
+architecture arc of decoder5to32 is
 		signal auxiliar: std_logic_vector(5 downto 0);
 begin
 	auxiliar <= data_in & enable;
-	with aux select
+	with auxiliar select
 		data_out <= "00000000000000000000000000000001" when "000001",
 						"00000000000000000000000000000010" when "100001",
 						"00000000000000000000000000000100" when "010001",

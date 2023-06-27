@@ -27,10 +27,10 @@ END ENTITY;
 ARCHITECTURE RTL OF memory IS
 -- Me complete e descomente!
 
-TYPE ram_type IS <'IM', 'DM'>; -- Aqui!
-SIGNAL ram			: ram_type;
+--TYPE ram_type IS <'IM', 'DM'>; -- Aqui!
+--SIGNAL ram			: ram_type;
 ATTRIBUTE ram_init_file			: STRING;
-ATTRIBUTE ram_init_file OF ram	: SIGNAL IS MIF_FILE;	
+--ATTRIBUTE ram_init_file OF ram	: SIGNAL IS MIF_FILE;	
 signal first_q: std_logic_vector(7 downto 0);
 signal second_q: std_logic_vector(7 downto 0);
 signal third_q: std_logic_vector(7 downto 0);
