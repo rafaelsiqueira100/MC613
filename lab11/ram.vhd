@@ -26,7 +26,7 @@ architecture rtl of ram is
         signal eighth_q: std_logic_vector(7 downto 0);
         signal wr_enable: std_logic_vector (7 downto 0);
         signal address_out: std_logic_vector(6 downto 0);
-        signal ramBlock: std_logic_vector(2 downto 0);
+        signal line_to_read: std_logic;
         signal valid_address : std_logic;
 		  signal address_in: std_logic_vector(9 downto 0);
 		  signal wr_first_block: std_logic;
@@ -36,7 +36,7 @@ architecture rtl of ram is
         component ram_map is
       port (
                AddressIn : in std_logic_vector(9 downto 0);
-               RamBlock : out std_logic_vector(2 downto 0);
+               LineToRead : out std_logic;
                AddressOut : out std_logic_vector(6 downto 0);
                IsValid: out std_logic
               );
@@ -55,7 +55,7 @@ architecture rtl of ram is
 begin       
 wr_first_block <= (not address_in(9)) and (not address_in(8)) and (not address_in(7)) and WrEn;
 wr_second_block <= address_in(9) and (not address_in(8)) and (not address_in(7)) and WrEn;
-ramMap: ram_map port map (address_in, ramBlock, address_out, valid_address);
+ramMap: ram_map port map (address_in, line_to_read, address_out, valid_address);
 ram_block1 : ram_block port map(Clock => Clock, Address => address_out, Data => DataIn(31 downto 24), Q => first_q, WrEn => wr_first_block);
 ram_block2 : ram_block port map(Clock => Clock, Address => address_out, Data => DataIn(23 downto 16), Q => second_q, WrEn => wr_first_block);    
 ram_block3 : ram_block port map(Clock => Clock, Address => address_out, Data => DataIn(15 downto 8), Q => third_q, WrEn => wr_first_block);    
@@ -74,11 +74,11 @@ process(Address, firstDataOut, secondDataOut)--n~ao coloco clock em process pq j
 								wr_enable <= "00000000";
                         DataOut <= (others => 'Z');
                  else
-                        case ramBlock is
-                          when "000" =>
+                        case line_to_read is
+                          when '0' =>
                                  --wr_enable <= WrEn & WrEn & WrEn & WrEn & "0000";
                                  DataOut <= firstDataOut;
-                          when "100" =>
+                          when '1' =>
                                  --wr_enable <= "0000" & WrEn & WrEn & WrEn & WrEn;
                                  DataOut <= secondDataOut;
                           when others =>

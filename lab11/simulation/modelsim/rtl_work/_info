@@ -9,21 +9,21 @@ z2
 cModel Technology
 Z0 d/home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab11/simulation/modelsim
 Eram
-Z1 w1686773189
+Z1 w1687994860
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
 R0
 Z4 8/home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab11/ram.vhd
 Z5 F/home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab11/ram.vhd
 l0
-L4
-VPTlAaB6DXzM<k]:Ab5kVm0
-!s100 lVG99gj2>G4D8WYCm51Hd2
+L8
+VYgOzg4gAWeT99aILJMDE]3
+!s100 UXIOC6:C3[^Fgal_mFoKb1
 Z6 OV;C;10.5b;63
 31
-Z7 !s110 1686773209
+Z7 !s110 1687994994
 !i10b 1
-Z8 !s108 1686773209.000000
+Z8 !s108 1687994994.000000
 Z9 !s90 -reportprogress|300|-93|-work|work|/home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab11/ram.vhd|
 Z10 !s107 /home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab11/ram.vhd|
 !i113 1
@@ -32,11 +32,11 @@ Z12 tExplicit 1 CvgOpt 0
 Artl
 R2
 R3
-DEx4 work 3 ram 0 22 PTlAaB6DXzM<k]:Ab5kVm0
-l51
-L14
-VCfaRCLbj3eTBMEHQ0W<4J2
-!s100 EAnjm[5619><d3[_Un[@G3
+DEx4 work 3 ram 0 22 YgOzg4gAWeT99aILJMDE]3
+l55
+L18
+Vl7^PdEFJC^@XlkAffGY>73
+!s100 i0DZZlPFAK79`d_;0U09D3
 R6
 31
 R7
@@ -48,7 +48,7 @@ R10
 R11
 R12
 Eram_block
-Z13 w1686772771
+Z13 w1686773889
 Z14 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 R2
 R3
@@ -56,9 +56,9 @@ R0
 Z15 8/home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab11/ram_block.vhd
 Z16 F/home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab11/ram_block.vhd
 l0
-L5
-VVGC43>3H8fef]IgeiJeFL2
-!s100 a5mb`KN[1Te?`VQ@ia1no1
+L8
+VEX18CJ=gI5@H7h2@?:Zbc3
+!s100 bcahNRKJN16>i@ESZJOSm1
 R6
 31
 R7
@@ -73,11 +73,11 @@ Adirect
 R14
 R2
 R3
-DEx4 work 9 ram_block 0 22 VGC43>3H8fef]IgeiJeFL2
-l20
-L16
-VTnbGSLhUS`AWczN8fbCo@3
-!s100 8ZRHiAb41[L>QkCHULhoQ2
+DEx4 work 9 ram_block 0 22 EX18CJ=gI5@H7h2@?:Zbc3
+l23
+L19
+VVNj`3XI0UH`dWhgR2LngZ2
+!s100 f5?K^MOMPalTTQ^oVZI5N1
 R6
 31
 R7
@@ -89,16 +89,16 @@ R18
 R11
 R12
 Eram_map
-Z19 w1686769802
+Z19 w1687994838
 R2
 R3
 R0
 Z20 8/home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab11/ram_map.vhd
 Z21 F/home/ec2019-ceb/ra243360/Downloads/MC613/MC613/lab11/ram_map.vhd
 l0
-L3
-VA;i[QhX]:EDSY4kA]:NhP0
-!s100 WG;z::@4TOK9KRaJhNoJj1
+L6
+Vh5=:3BSW]4WJGDFBFaThn3
+!s100 H_O:3F6K[6gJNhanm8PAm2
 R6
 31
 R7
@@ -112,11 +112,11 @@ R12
 Aarq_ram_map
 R2
 R3
-DEx4 work 7 ram_map 0 22 A;i[QhX]:EDSY4kA]:NhP0
-l16
-L12
-V;2V?7NQM1X6?zFVaa^dXA1
-!s100 UgcV[VHnl2J9T`?d]bT]K3
+DEx4 work 7 ram_map 0 22 h5=:3BSW]4WJGDFBFaThn3
+l20
+L16
+VnAzz_PZ>WRoB[TRfENVi@0
+!s100 hWIBR6HfCYjTg?gDjCL>n1
 R6
 31
 R7
