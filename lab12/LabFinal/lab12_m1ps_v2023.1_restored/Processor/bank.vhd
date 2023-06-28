@@ -63,15 +63,15 @@ BEGIN
 		f => DATA_OUT2
 	);
 	
-	createRegs: for i in 0 to WORDSIZE-1 generate
+	createRegs: for i in 1 to WORDSIZE-1 generate
 		r_i: entity work.reg port map(clock => clock, 
 		load => registerToWrite(i) and WR_EN,
 		clear => clear,
 		datain => DATA_IN,
-		dataout => data_out_auxiliar(i*WORDSIZE -1 downto (i-1) * WORDSIZE));
+		dataout => data_out_auxiliar(((i*WORDSIZE) - 1) downto (i-1) * WORDSIZE));
 		
 		zbuffer1_i : entity work.zbuffer port map (
-			x => data_out_auxiliar(i * WORDSIZE - 1 downto (i - 1) * WORDSIZE),
+			x => data_out_auxiliar((i * WORDSIZE) - 1 downto (i-1) * WORDSIZE),
 			e => registerToRead1(i) and rd_en,
 			f => DATA_OUT1
 		);
