@@ -49,6 +49,7 @@ BEGIN
 		data_in => RD_ADDR2, 
 		data_out => registerToRead2
 	);
+	
 -- Registradores R0_1 e R0_2
 	
 	zbuffer_r0_1: entity work.zbuffer port map ( 

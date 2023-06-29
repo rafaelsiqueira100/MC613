@@ -53,8 +53,8 @@ architecture rtl of ram is
               );
       end component;
 begin       
-wr_first_block <= (not address_in(9)) and (not address_in(8)) and (not address_in(7)) and WrEn;
-wr_second_block <= address_in(9) and (not address_in(8)) and (not address_in(7)) and WrEn;
+wr_first_block <= not line_to_read;
+wr_second_block <= line_to_read;
 ramMap: ram_map port map (address_in, line_to_read, address_out, valid_address);
 ram_block1 : ram_block port map(Clock => Clock, Address => address_out, Data => DataIn(31 downto 24), Q => first_q, WrEn => wr_first_block);
 ram_block2 : ram_block port map(Clock => Clock, Address => address_out, Data => DataIn(23 downto 16), Q => second_q, WrEn => wr_first_block);    

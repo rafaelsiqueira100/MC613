@@ -39,9 +39,8 @@ signal fifth_q: std_logic_vector(7 downto 0);
 signal sixth_q: std_logic_vector(7 downto 0);
 signal seventh_q: std_logic_vector(7 downto 0);
 signal eighth_q: std_logic_vector(7 downto 0);
-signal wr_enable: std_logic_vector (7 downto 0);
 signal address_out: std_logic_vector(6 downto 0);
-signal ramBlock: std_logic_vector(2 downto 0);
+signal line_to_read: std_logic;
 signal valid_address : std_logic;
 signal address_in: std_logic_vector(9 downto 0);
 signal wr_first_block: std_logic;
@@ -51,7 +50,7 @@ signal firstDataOut, secondDataOut: std_logic_vector(31 downto 0);
 component ram_map is
 port (
 		AddressIn : in std_logic_vector(9 downto 0);
-		RamBlock : out std_logic_vector(2 downto 0);
+		line_to_read : out std_logic;
 		AddressOut : out std_logic_vector(6 downto 0);
 		IsValid: out std_logic
 	  );
@@ -70,43 +69,55 @@ end component;
 BEGIN 
 -- Leitura e Escrita independentes!
 -- Agora, inves de trabalharmos com 
---wr_first_block <= (not address_in(9)) and (not address_in(8)) and (not address_in(7)) and WE;
---wr_second_block <= address_in(9) and (not address_in(8)) and (not address_in(7)) and WE;
---ramMap: ram_map port map (address_in, ramBlock, address_out, valid_address);
---ram_block1 : ram_block port map(Clock => Clock, Address => address_out, Data => DataIn(31 downto 24), Q => first_q, WrEn => wr_first_block);
---ram_block2 : ram_block port map(Clock => Clock, Address => address_out, Data => DataIn(23 downto 16), Q => second_q, WrEn => wr_first_block);    
---ram_block3 : ram_block port map(Clock => Clock, Address => address_out, Data => DataIn(15 downto 8), Q => third_q, WrEn => wr_first_block);    
---ram_block4 : ram_block port map(Clock => Clock, Address => address_out, Data => DataIn(7 downto 0), Q => fourth_q, WrEn => wr_first_block);    
---ram_block5 : ram_block port map(Clock => Clock, Address => address_out, Data => DataIn(31 downto 24), Q => fifth_q, WrEn => wr_second_block);       
---ram_block6 : ram_block port map(Clock => Clock, Address => address_out, Data => DataIn(23 downto 16), Q => sixth_q, WrEn => wr_second_block);        
---ram_block7 : ram_block port map(Clock => Clock, Address => address_out, Data => DataIn(15 downto 8), Q => seventh_q, WrEn => wr_second_block);       
---ram_block8 : ram_block port map(Clock => Clock, Address => address_out, Data => DataIn(7 downto 0), Q => eighth_q, WrEn => wr_second_block); 
---firstDataOut <= first_q & second_q & third_q & fourth_q;
---secondDataOut <= fifth_q & sixth_q & seventh_q & eighth_q;
-process(clock)
-        begin
-		  --address_in <= Address;
-			 
-          --       if(valid_address = '0') then
-				--				wr_enable <= "00000000";
-              --          DataOut <= (others => 'Z');
-                -- else
-                  --      case ramBlock is
-                    --      when "000" =>
-                                 --wr_enable <= WrEn & WrEn & WrEn & WrEn & "0000";
-                      --           DataOut <= firstDataOut;
-                        --  when "100" =>
-                                 --wr_enable <= "0000" & WrEn & WrEn & WrEn & WrEn;
-                          --       DataOut <= secondDataOut;
-                          --when others =>
-                            --    DataOut <= (others => 'Z');
-                        --end case;
-          --end if;
-			 if clock'event and clock = '1' then
-				if we = '1' then
-					ram(to_integer(unsigned(address))) <= datain;
-				end if;
-				dataout <= ram(to_integer(unsigned(address)));
-			end if;
+
+ramMap: ram_map port map (address_in, line_to_read, address_out, valid_address);
+ram_block1 : ram_block port map(Clock => Clock, Address => address_out, Data => DataIn(31 downto 24), Q => first_q, WrEn => wr_first_block);
+ram_block2 : ram_block port map(Clock => Clock, Address => address_out, Data => DataIn(23 downto 16), Q => second_q, WrEn => wr_first_block);    
+ram_block3 : ram_block port map(Clock => Clock, Address => address_out, Data => DataIn(15 downto 8), Q => third_q, WrEn => wr_first_block);    
+ram_block4 : ram_block port map(Clock => Clock, Address => address_out, Data => DataIn(7 downto 0), Q => fourth_q, WrEn => wr_first_block);    
+ram_block5 : ram_block port map(Clock => Clock, Address => address_out, Data => DataIn(31 downto 24), Q => fifth_q, WrEn => wr_second_block);       
+ram_block6 : ram_block port map(Clock => Clock, Address => address_out, Data => DataIn(23 downto 16), Q => sixth_q, WrEn => wr_second_block);        
+ram_block7 : ram_block port map(Clock => Clock, Address => address_out, Data => DataIn(15 downto 8), Q => seventh_q, WrEn => wr_second_block);       
+ram_block8 : ram_block port map(Clock => Clock, Address => address_out, Data => DataIn(7 downto 0), Q => eighth_q, WrEn => wr_second_block); 
+firstDataOut <= first_q & second_q & third_q & fourth_q;
+secondDataOut <= fifth_q & sixth_q & seventh_q & eighth_q;
+process(clock, we)
+begin
+	if (we = '1') then
+		if (valid_address = '0') then
+			wr_first_block <= '0';
+			wr_second_block <= '0';
+			DataOut <= (others => 'Z');
+		else
+			wr_first_block <= not line_to_read;
+			wr_second_block <= line_to_read;
+		end if;
+	end if;
+	
+	if(clock'event and clock='1') then
+		wr_first_block <= '0';
+		wr_second_block <= '0';
+		address_in <= Address;
+		if (valid_address = '0') then
+			DataOut <= (others => 'Z');
+		else
+			  address_in <= Address;
+						case line_to_read is
+						  when '0' =>
+									--wr_enable <= WrEn & WrEn & WrEn & WrEn & "0000";
+									DataOut <= firstDataOut;
+						  when '1' =>
+									--wr_enable <= "0000" & WrEn & WrEn & WrEn & WrEn;
+									DataOut <= secondDataOut;
+						  when others =>
+								  DataOut <= (others => 'Z');
+						end case;
+		end if;
+				 --if clock'event and clock = '1' then
+					--if we = '1' then
+						--ram(to_integer(unsigned(address))) <= datain;
+					--end if;
+					--dataout <= ram(to_integer(unsigned(address)));
+	end if;
 end process;
 end architecture RTL;
