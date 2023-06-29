@@ -6,7 +6,6 @@ use ieee.std_logic_1164.all;
 entity ram_map is
         port (
                  AddressIn : in std_logic_vector(9 downto 0);
-                 --RamBlock : out std_logic_vector(2 downto 0);
                  AddressOut : out std_logic_vector(6 downto 0);
 					  LineToRead : out std_logic;
                  IsValid: out std_logic
